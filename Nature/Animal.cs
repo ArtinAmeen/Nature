@@ -84,7 +84,7 @@ namespace Nature
 
         public virtual string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight}\nAge: {GetAge}\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}");
+            return ($"Name: {GetName}\nWeight: {GetWeight}\nAge: {GetAge}\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}");
         }
     }
 
@@ -121,7 +121,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nThe horse wear horseshoes: {GetWearsHorseShoes}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nThe horse wear horseshoes: {GetWearsHorseShoes}");
         }
     }
 
@@ -159,7 +159,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nRace: {GetRace}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nRace: {GetRace}");
         }
     }
 
@@ -197,7 +197,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nNumber of spikes: {GetSpikeAmount}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of spikes: {GetSpikeAmount}");
         }
     }
 
@@ -236,7 +236,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nThe length of the worm in millimetres: {GetLengthInMM}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nThe length of the worm in millimetres: {GetLengthInMM}");
         }
     }
 
@@ -265,7 +265,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}");
         }
     }
 
@@ -293,7 +293,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nIs a alpha wolf: {GetEyeColour}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nIs a alpha wolf: {GetEyeColour}");
         }
     }
 
@@ -331,7 +331,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nEye colour: {GetEyeColour}\nIn human form currently?: {GetCurrentForm}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nEye colour: {GetEyeColour}\nIn human form currently?: {GetCurrentForm}");
         }
     }
     public class Pelican : Bird
@@ -368,7 +368,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nBeak length in centimetres: {GetBeakLengthInCM}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nBeak length in centimetres: {GetBeakLengthInCM}");
         }
     }
 
@@ -406,7 +406,7 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nIs the flamingo in water?: {GetIfFlamingoInWater}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nIs the flamingo in water?: {GetIfFlamingoInWater}");
         }
     }
 
@@ -443,7 +443,7 @@ namespace Nature
         }
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nLives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nColour: {GetColour}");
+            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nColour: {GetColour}");
         }
     }
 }
