@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 //namespace Nature
 //{
-    // 14: if all the animals need a new attribute/method, we will place it in the Animal class, though
+    // 3.2-14: if all the animals need a new attribute/method, we will place it in the Animal class, though
     // we would have to update the classes (like overriding the new method in the subclasses of Animal).
     public abstract class Animal
     {        
@@ -132,7 +132,7 @@ using System.Threading.Tasks;
         }
     }
 
-    // 13: if we want to give all the birds a new attribute/function, it must be placed in the Bird class, but
+    // 3.2-13: if we want to give all the birds a new attribute/function, it must be placed in the Bird class, but
     // we will have to "update" the constructor in the Bird class and in every class that inherits from Bird
     // and if we add a method in the Bird class, we will have to override it in its subclasses.
     public class Bird : Animal

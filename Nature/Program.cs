@@ -17,7 +17,7 @@ namespace Nature
 
             var Animals = new List<Animal>
             {
-                new Horse ("Hasse", 8, 450, 3, true),
+                // new Horse ("Hasse", 8, 450, 3, true),
                 new Dog ("Emma", 5, 25, 12, "Golden retriever"),
                 new Hedgehog ("Harry", 3, 0.8, 9, 5000),
                 new Worm ("Slimy", 2, 0.001, 3, 50),
@@ -43,6 +43,17 @@ namespace Nature
 
                 }
             }
+
+            // 3.3-9: we cannot place a horse in a list with dogs because they are not objects of the same
+            // class. The fact that they do not have exacly the same arguments does not matter too much,
+            // you would still not be able to place an object of the class Horse in this list.
+            var Dogs = new List<Dog>
+            {
+                new Dog ("Bella", 5, 26.5, 12.5, "Labrador"),
+                new Dog ("Diego", 3, 2, 15, "Chihuahua"),
+                new Dog ("Charlene", 4, 9.2, 12, "Beagle"),
+                //new Horse ("Marley", 9, 440, 3, true)
+            };
         }
     }
 }
