@@ -6,112 +6,47 @@ using System.Threading.Tasks;
 
 namespace Nature
 {
-    // 14: if all the animals need a new attribute/method, we will place it in the Animal class.
+    // 14: if all the animals need a new attribute/method, we will place it in the Animal class, though
+    // we would have to update the classes (like overriding the new method in the subclasses of Animal).
     public abstract class Animal
-    {
-        protected string name;
-        protected int age;
-        protected double weight;
-        protected double hoursSleeping;
-        protected bool livesIndoors;
-
+    {        
         public string GetName
-        {
-            set
-            {
-                name = value;
-            }
-
-            get
-            {
-                return name;
-            }
-        }
-
-        public double GetWeight
-        {
-            set
-            {
-                weight = value;
-            }
-
-            get
-            {
-                return weight;
-            }
-        }
+        { set; get; }
 
         public int GetAge
-        {
-            set
-            {
-                age = value;
-            }
+        { set; get; }
 
-            get
-            {
-                return age;
-            }
-        }
+        public double GetWeight
+        { set; get; }
 
         public double GetHoursSleeping
+        { set; get; }
+
+        public Animal (string name, int age, double weight, double hoursSleeping)
         {
-            set
-            {
-                hoursSleeping = value;
-            }
-
-            get
-            {
-                return hoursSleeping;
-            }
-        }
-
-        public bool GetLivesIndoors
-        {
-            set
-            {
-                livesIndoors = value;
-            }
-
-            get
-            {
-                return livesIndoors;
-            }
+            GetName = name;
+            GetAge = age;
+            GetWeight = weight;
+            GetHoursSleeping = hoursSleeping;
         }
 
         public abstract void DoSound();
 
         public virtual string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight}\nAge: {GetAge}\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}");
+            return ($"Name: {GetName}\nAge: {GetAge}\nWeight: {GetWeight}\nHours of sleep: {GetHoursSleeping}");
         }
     }
 
     public class Horse : Animal
     {
-        protected bool wearsHorseShoes;
-        public Horse (string name, int age, double weight, double hoursSleeping, bool livesIndoors, bool wearsHorseShoes)
-        {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            this.wearsHorseShoes = wearsHorseShoes;
-        }
+        public bool GetIfHorseWearsHorseshoes
+        { set; get; }
 
-        public bool GetWearsHorseShoes
+        public Horse (string name, int age, double weight, double hoursSleeping, bool wearsHorseShoes) :
+                 base(name, age, weight, hoursSleeping)
         {
-            set
-            {
-                wearsHorseShoes = value;
-            }
-
-            get
-            {
-                return wearsHorseShoes;
-            }
+            GetIfHorseWearsHorseshoes = wearsHorseShoes;
         }
 
         public override void DoSound()
@@ -121,35 +56,24 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nThe horse wear horseshoes: {GetWearsHorseShoes}");
+            return base.Stats() +$"\nThe horse wear horseshoes: {GetIfHorseWearsHorseshoes}";
         }
     }
 
     public class Dog : Animal
     {
-        protected string race;
+        public string GetRace
+        { set; get; }
 
-        public Dog (string name, int age, double weight, double hoursSleeping, bool livesIndoors, string race)
+        public Dog (string name, int age, double weight, double hoursSleeping, string race) :
+               base(name, age, weight, hoursSleeping)
         {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            this.race = race;
+            GetRace = race;
         }
 
-        public string GetRace
+        public void LickOwner ()
         {
-            set
-            {
-                race = value;
-            }
-
-            get
-            {
-                return race;
-            }
+            Console.WriteLine("*Lick lick*");
         }
 
         public override void DoSound()
@@ -159,35 +83,19 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nRace: {GetRace}");
+            return base.Stats() + $"\nRace: {GetRace}";
         }
     }
 
     public class Hedgehog : Animal
     {
-        protected int amountOfSpikes;
-
-        public Hedgehog(string name, int age, double weight, double hoursSleeping, bool livesIndoors, int amountOfSpikes)
-        {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            this.amountOfSpikes = amountOfSpikes;
-        }
-
         public int GetSpikeAmount
-        {
-            set
-            {
-                amountOfSpikes = value;
-            }
+        { set; get; }
 
-            get
-            {
-                return amountOfSpikes;
-            }
+        public Hedgehog(string name, int age, double weight, double hoursSleeping, int amountOfSpikes) :
+                   base(name, age, weight, hoursSleeping)
+        {
+            GetSpikeAmount = amountOfSpikes;
         }
 
         public override void DoSound()
@@ -197,37 +105,20 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of spikes: {GetSpikeAmount}");
+            return base.Stats() + $"\nNumber of spikes: {GetSpikeAmount}";
         }
     }
 
     public class Worm : Animal
     {
-        public double lengthInMM;
-
-        public Worm(string name, int age, double weight, double hoursSleeping, bool livesIndoors, double lengthInMM)
-        {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            this.lengthInMM = lengthInMM;
-        }
-
         public double GetLengthInMM
+        { set; get; }
+
+        public Worm(string name, int age, double weight, double hoursSleeping, double lengthInMM) :
+               base(name, age, weight, hoursSleeping)
         {
-            set
-            {
-                lengthInMM = value;
-            }
-
-            get
-            {
-                return lengthInMM;
-            }
+            GetLengthInMM = lengthInMM;
         }
-
 
         public override void DoSound()
         {
@@ -236,26 +127,22 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nThe length of the worm in millimetres: {GetLengthInMM}");
+            return base.Stats() + $"\nThe length of the worm in millimetres: {GetLengthInMM}";
         }
     }
 
-    // 13: if we want to give all the birds a new attribute/method, it must be placed in the Bird
-    // class, but we also have to "update" the constructor of every class that inherits from Bird.
+    // 13: if we want to give all the birds a new attribute/function, it must be placed in the Bird class, but
+    // we will have to "update" the constructor in the Bird class and in every class that inherits from Bird
+    // and if we add a method in the Bird class, we will have to override it in its subclasses.
     public class Bird : Animal
     {
-        protected int featherAmount;
         public int GetFeatherAmount
-        {
-            set
-            {
-                featherAmount = value;
-            }
+        { set; get; }
 
-            get
-            {
-                return featherAmount;
-            }
+        public Bird(string name, int age, double weight, double hoursSleeping, int featherAmount) :
+               base(name, age, weight, hoursSleeping)
+        {
+            GetFeatherAmount = featherAmount;
         }
 
         public override void DoSound()
@@ -265,25 +152,19 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}");
+            return base.Stats() + $"\nNumber of feathers: {GetFeatherAmount}";
         }
     }
 
     public class Wolf : Animal
     {
-        protected string eyeColour;
-
         public string GetEyeColour
-        {
-            set
-            {
-                eyeColour = value;
-            }
+        { set; get; }
 
-            get
-            {
-                return eyeColour;
-            }
+        public Wolf(string name, int age, double weight, double hoursSleeping, string eyeColour) :
+               base(name, age, weight, hoursSleeping)
+        {
+            GetEyeColour = eyeColour;
         }
 
         public override void DoSound()
@@ -293,72 +174,41 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nIs a alpha wolf: {GetEyeColour}");
+            return base.Stats() + $"\nEye colour: {GetEyeColour}";
         }
     }
 
-    public class Wolfman : Wolf, Person
+    public class Wolfman : Wolf, IPerson
     {
-        protected bool inHumanForm;
-        public Wolfman(string name, int age, double weight, double hoursSleeping, bool livesIndoors, string eyeColour, bool inHumanForm)
-        {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            GetEyeColour = eyeColour;
-            this.inHumanForm = inHumanForm;
-        }
-
         public bool GetCurrentForm
-        {
-            set
-            {
-                inHumanForm = value;
-            }
+        { set; get; }
 
-            get
-            {
-                return inHumanForm;
-            }
+        public Wolfman(string name, int age, double weight, double hoursSleeping, string eyeColour, bool inHumanForm) : 
+                  base(name, age, weight, hoursSleeping, eyeColour)
+
+        {
+            GetCurrentForm = inHumanForm;
         }
 
-        public void Talk ()
+        public void Talk()
         {
             Console.WriteLine("Rawr rawr");
         }
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nEye colour: {GetEyeColour}\nIn human form currently?: {GetCurrentForm}");
+            return base.Stats() + $"\nIn human form currently?: {GetCurrentForm}";
         }
     }
     public class Pelican : Bird
     {
-        protected double beakLength;
-        public Pelican(string name, int age, double weight, double hoursSleeping, bool livesIndoors, int featherAmount, double beakLength)
-        {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            GetFeatherAmount = featherAmount;
-            this.beakLength = beakLength;
-        }
-
         public double GetBeakLengthInCM
-        {
-            set
-            {
-                beakLength = value;
-            }
+        { set; get; }
 
-            get
-            {
-                return beakLength;
-            }
+        public Pelican(string name, int age, double weight, double hoursSleeping, int featherAmount, double beakLength) :
+                  base(name, age, weight, hoursSleeping, featherAmount)
+        {
+            GetBeakLengthInCM = beakLength;
         }
 
         public override void DoSound()
@@ -368,35 +218,19 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nBeak length in centimetres: {GetBeakLengthInCM}");
+            return base.Stats() + $"\nBeak length in centimetres: {GetBeakLengthInCM}";
         }
     }
 
     public class Flamingo : Bird
     {
-        protected bool inWater;
-        public Flamingo(string name, int age, double weight, double hoursSleeping, bool livesIndoors, int featherAmount,  bool inWater)
-        {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            GetFeatherAmount = featherAmount;
-            this.inWater = inWater;
-        }
-
         public bool GetIfFlamingoInWater
-        {
-            set
-            {
-                inWater = value;
-            }
+        { set; get; }
 
-            get
-            {
-                return inWater;
-            }
+        public Flamingo(string name, int age, double weight, double hoursSleeping, int featherAmount,  bool inWater) :
+                   base(name, age, weight, hoursSleeping, featherAmount)
+        {
+            GetIfFlamingoInWater = inWater;
         }
 
         public override void DoSound()
@@ -406,35 +240,17 @@ namespace Nature
 
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nIs the flamingo in water?: {GetIfFlamingoInWater}");
+            return base.Stats() + $"\nIs the flamingo in water?: {GetIfFlamingoInWater}";
         }
     }
 
     public class Swan : Bird
     {
-        protected string colour;
-        public Swan(string name, int age, double weight, double hoursSleeping, bool livesIndoors, int featherAmount, string colour)
+        public string GetColour { set; get; }
+        public Swan(string name, int age, double weight, double hoursSleeping, int featherAmount, string colour) :
+               base(name, age, weight, hoursSleeping, featherAmount)
         {
-            GetName = name;
-            GetAge = age;
-            GetWeight = weight;
-            GetHoursSleeping = hoursSleeping;
-            GetLivesIndoors = livesIndoors;
-            GetFeatherAmount = featherAmount;
-            this.colour = colour;
-        }
-
-        public string GetColour
-        {
-            set
-            {
-                colour = value;
-            }
-
-            get
-            {
-                return colour;
-            }
+            GetColour = colour;
         }
 
         public override void DoSound()
@@ -443,12 +259,7 @@ namespace Nature
         }
         public override string Stats()
         {
-            return ($"Name: {GetName}\nWeight: {GetWeight} kg\nAge: {GetAge} years\nHours of sleep: {GetHoursSleeping}\nThe animal lives indoors: {GetLivesIndoors}\nNumber of feathers: {GetFeatherAmount}\nColour: {GetColour}");
+            return base.Stats() + $"\nColour: {GetColour}";
         }
     }
-}
-
-public interface Person
-{
-    void Talk();
 }
