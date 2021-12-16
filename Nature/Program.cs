@@ -10,11 +10,9 @@ namespace Nature
         {
             Console.WriteLine("SpongeBob SquarePants");
             Console.WriteLine();
-            //Horse horse1 = new Horse("Horace", 10, 400, true);
 
-            //String horseList = horse1.Stats();
-            //Console.WriteLine(horseList);
-
+            // 3.3-10: we can only place the animals we've created in the same list if the list
+            // is of the Animal type
             var Animals = new List<Animal>
             {
                 // new Horse ("Hasse", 8, 450, 3, true),
@@ -54,6 +52,23 @@ namespace Nature
                 new Dog ("Charlene", 4, 9.2, 12, "Beagle"),
                 //new Horse ("Marley", 9, 440, 3, true)
             };
+
+            Console.WriteLine();
+
+
+            // in this foreach loop, we want to output the stats of every animal in our Animals list. But
+            // since Stats() returns a string, I've decided to store it in a string that I will output at
+            // the end of the loop.
+
+            // below the string in question, with WriteLine, I decided to output an introduction of every
+            // animal in the list. I got their names using GetName (which is available in every subclass
+            // to Animal) and what animals they are via the GetType() method.
+            foreach (var a in Animals)
+            {
+                string stats = a.Stats();
+                Console.WriteLine($"Stats of {a.GetName}, the {a.GetType()}");
+                Console.WriteLine(stats);
+            }
         }
     }
 }
