@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Nature;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nature
-{
+//namespace Nature
+//{
     // 14: if all the animals need a new attribute/method, we will place it in the Animal class, though
     // we would have to update the classes (like overriding the new method in the subclasses of Animal).
     public abstract class Animal
@@ -205,10 +206,10 @@ namespace Nature
         public double GetBeakLengthInCM
         { set; get; }
 
-        public Pelican(string name, int age, double weight, double hoursSleeping, int featherAmount, double beakLength) :
+        public Pelican(string name, int age, double weight, double hoursSleeping, int featherAmount, double beakLengthInCM) :
                   base(name, age, weight, hoursSleeping, featherAmount)
         {
-            GetBeakLengthInCM = beakLength;
+            GetBeakLengthInCM = beakLengthInCM;
         }
 
         public override void DoSound()
@@ -262,4 +263,4 @@ namespace Nature
             return base.Stats() + $"\nColour: {GetColour}";
         }
     }
-}
+//}
