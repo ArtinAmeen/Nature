@@ -30,13 +30,15 @@ namespace Nature
             foreach (var a in Animals)
             {
                 object o = a;
-                Console.Write($"The {a.GetType()} says: ");
+                string animalName = Convert.ToString(a.GetType());
+                string animalNameInLC = animalName.ToLower();
+                Console.Write($"The {animalNameInLC} says: ");
                 a.DoSound();
 
                 if (a is IPerson)
                 {
-                    var b = (IPerson) a;
-                    Console.Write($"{b.GetType()} also says: ");
+                    var b = (IPerson)a;
+                    Console.Write($"The {animalNameInLC} also says: ");
                     b.Talk();
 
                 }
@@ -67,8 +69,8 @@ namespace Nature
             {
                 string stats = a.Stats();
                 string animalName = Convert.ToString(a.GetType());
-                string animalNameLC = animalName.ToLower();
-                Console.WriteLine($"Stats of {a.GetName}, the {animalNameLC}:");
+                string animalNameInLC = animalName.ToLower();
+                Console.WriteLine($"Stats of {a.GetName}, the {animalNameInLC}:");
                 Console.WriteLine(stats);
             }
 
