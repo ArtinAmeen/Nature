@@ -56,7 +56,7 @@ namespace Nature
             };
 
             Console.WriteLine();
-
+            Console.WriteLine("Below, we have the stats of every animal in the Animal list:");
 
             // in this foreach loop, we want to output the stats of every animal in our Animals list. But
             // since Stats() returns a string, I've decided to store it in a string that I will output at
@@ -72,11 +72,39 @@ namespace Nature
                 string animalNameInLC = animalName.ToLower();
                 Console.WriteLine($"Stats of {a.GetName}, the {animalNameInLC}:");
                 Console.WriteLine(stats);
-            }
+            };
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("Below, we have the output of a foreach loop which will only write the stats of the dog/dogs ");
+            Console.WriteLine("in the Animal list.");
+
 
             foreach (var a in Animals)
             {
+                if (a is Dog)
+                {
+                    String stats = a.Stats();
+                    Console.WriteLine(stats);
+                }
+            }
 
+            Console.WriteLine();
+
+            Dog d1 = new Dog("Alva", 3, 5.5, 19, "Jack Russell Terrier");
+            Animals.Add(d1);
+
+            // 3.3-16/17/18 we cannot access the NiceComment() method in dog from Animals since it is only available in the Dog class.
+
+            foreach (var a in Animals)
+            {
+                //string niceCommenta = a.NiceComment();
+                if (a is Dog)
+                {
+                    var b = (Dog)a;
+                    string niceComment = b.NiceComment();
+                    Console.WriteLine(niceComment);
+                }
             }
         }
     }

@@ -72,9 +72,9 @@ using System.Threading.Tasks;
             GetRace = race;
         }
 
-        public void LickOwner ()
+        public string NiceComment()
         {
-            Console.WriteLine("*Lick lick*");
+            return ("Good dog! :)");
         }
 
         public override void DoSound()
