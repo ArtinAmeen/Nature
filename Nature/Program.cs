@@ -68,7 +68,7 @@ namespace Nature
                 string stats = a.Stats();
                 string animalName = Convert.ToString(a.GetType());
                 string animalNameLC = animalName.ToLower();
-                Console.WriteLine($"Stats of {a.GetName}, the {animalNameLC}");
+                Console.WriteLine($"Stats of {a.GetName}, the {animalNameLC}:");
                 Console.WriteLine(stats);
             }
 
