@@ -66,8 +66,15 @@ namespace Nature
             foreach (var a in Animals)
             {
                 string stats = a.Stats();
-                Console.WriteLine($"Stats of {a.GetName}, the {a.GetType()}");
+                string animalName = Convert.ToString(a.GetType());
+                string animalNameLC = animalName.ToLower();
+                Console.WriteLine($"Stats of {a.GetName}, the {animalNameLC}");
                 Console.WriteLine(stats);
+            }
+
+            foreach (var a in Animals)
+            {
+
             }
         }
     }
