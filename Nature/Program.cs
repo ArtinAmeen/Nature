@@ -8,9 +8,6 @@ namespace Nature
     {
         static void Main (string[] args)
         {
-            Console.WriteLine("SpongeBob SquarePants");
-            Console.WriteLine();
-
             // 3.3-10: we can only place the animals we've created in the same list if the list
             // is of the Animal type
             var Animals = new List<Animal>
