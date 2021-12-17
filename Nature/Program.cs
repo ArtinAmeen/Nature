@@ -15,7 +15,7 @@ namespace Nature
             // is of the Animal type
             var Animals = new List<Animal>
             {
-                // new Horse ("Hasse", 8, 450, 3, true),
+                new Horse ("Hasse", 8, 450, 3, true),
                 new Dog ("Emma", 5, 25, 12, "Golden retriever"),
                 new Hedgehog ("Harry", 3, 0.8, 9, 5000),
                 new Worm ("Slimy", 2, 0.001, 3, 50),

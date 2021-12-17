@@ -198,7 +198,7 @@ using System.Threading.Tasks;
 
         public override string Stats()
         {
-            return base.Stats() + $"\nIn human form currently?: {GetCurrentForm}";
+            return base.Stats() + $"\nCurrently in human form: {GetCurrentForm}";
         }
     }
     public class Pelican : Bird
@@ -241,7 +241,7 @@ using System.Threading.Tasks;
 
         public override string Stats()
         {
-            return base.Stats() + $"\nIs the flamingo in water?: {GetIfFlamingoInWater}";
+            return base.Stats() + $"\nThe flamingo is in the water: {GetIfFlamingoInWater}";
         }
     }
 
